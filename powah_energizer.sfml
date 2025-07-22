@@ -1,0 +1,64 @@
+name "PowahEnergizer"
+every 20 ticks do
+    if energize has =1 item:: then
+        input
+            powah:steel_energized,
+            powah:crystal_blazing,
+            powah:crystal_niotic,
+            powah:niotic_crystal_block,
+            powah:crystal_spirited,
+            powah:spirited_crystal_block
+        from energize
+        output to storage
+        forget
+    end
+
+    if energize has =2 powah:energized_steel_block then
+        input powah:energized_steel_block from energize
+        output to storage
+        forget
+    end
+
+    if energize has =16 powah:crystal_nitro then
+        input powah:crystal_nitro from energize
+        output to storage
+        forget
+    end
+
+    if energize has <= 0 item:: then
+        if storage has >=2 blue_ice then
+            input 2 blue_ice from storage
+            output to energize
+        else if storage has >=1 ender_eye and storage has >=1 powah:dielectric_casing and storage has >=1 powah:capacitor_basic_tiny then
+            input 1 ender_eye, 1 powah:dielectric_casing, 1 powah:capacitor_basic_tiny from storage
+            output to energize
+        else if storage has >=1 nether_star and storage has >=2 redstone_block and storage has >=1 powah:blazing_crystal_block then
+            input 1 nether_star, 2 redstone_block, 1 powah:blazing_crystal_block from storage
+            output to energize
+        else if storage has >=1 iron_ingot and storage has >=1 gold_ingot then
+            input 1 iron_ingot, 1 gold_ingot from storage
+            output to energize
+        else if storage has >=1 iron_block and storage has >=1 gold_block then
+            input 1 iron_block, 1 gold_block from storage
+            output to energize
+        else if storage has >=4 blaze_powder then
+            input 4 blaze_powder from storage
+            output to energize
+        else if storage has >=1 blaze_rod then
+            input 1 blaze_rod from storage
+            output to energize
+        else if storage has >=1 diamond then
+            input 1 diamond from storage
+            output to energize
+        else if storage has >=1 diamond_block then
+            input 1 diamond_block from storage
+            output to energize
+        else if storage has >=1 emerald then
+            input 1 emerald from storage
+            output to energize
+        else if storage has >=1 emerald_block then
+            input 1 _block from storage
+            output to energize
+        end
+    end
+end
