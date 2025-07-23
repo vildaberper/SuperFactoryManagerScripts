@@ -1,0 +1,37 @@
+name "NotTheBees"
+every 1 tick do
+    input forge_energy:: from power
+    output forge_energy:: to crafter
+--    output forge_energy:: to centrifuge
+    forget
+end
+every 20 ticks do
+    input honey_bottle from hive
+    output to crafter
+    forget
+
+    input glass_bottle from crafter
+    output retain 1 to each hive
+    forget
+
+    input honey_block from crafter
+    output to honey_block
+    forget
+
+--    input fluid::honey from centrifuge
+--    output fluid::honey to honey
+--    forget
+
+    input honeycomb, productivebees:configurable_honeycomb from hive
+--    output to centrifuge
+    output to comb
+    forget
+
+--    input honeycomb, productivebees:configurable_honeycomb from comb
+--    output to centrifuge
+--    forget
+
+    input productivebees:gene from hive
+    output to indexer
+    forget
+end
