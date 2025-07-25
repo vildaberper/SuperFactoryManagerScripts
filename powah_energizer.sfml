@@ -25,6 +25,12 @@ every 20 ticks do
         forget
     end
 
+    if energize has =1 powah:ender_core then
+        input powah:ender_core from energize
+        output to storage
+        forget
+    end
+
     if energize has <= 0 item:: then
         if storage has >=2 blue_ice then
             input 2 blue_ice from storage
