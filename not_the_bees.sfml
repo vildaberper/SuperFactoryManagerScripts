@@ -1,37 +1,82 @@
 name "NotTheBees"
+
 every 1 tick do
     input forge_energy:: from power
-    output forge_energy:: to crafter
---    output forge_energy:: to centrifuge
+    output forge_energy:: to centrifuge
+    output forge_energy:: to heated_centrifuge
+    output forge_energy:: to crafter_honey
     forget
 end
-every 20 ticks do
-    input honey_bottle from hive
-    output to crafter
-    forget
 
-    input glass_bottle from crafter
+every 20 ticks do
+-- bottles
+    input honey_bottle from hive
+    output to crafter_honey
+    forget
+    input glass_bottle from crafter_honey
+    output to storage_glas_bottles
+    forget
+    input glass_bottle from storage_glas_bottles
     output retain 1 to each hive
     forget
-
-    input honey_block from crafter
-    output to honey_block
+    input honey_block from crafter_honey
+    output to result
+    output to result_overflow
     forget
+end
 
---    input fluid::honey from centrifuge
---    output fluid::honey to honey
---    forget
-
-    input honeycomb, productivebees:configurable_honeycomb from hive
---    output to centrifuge
-    output to comb
-    forget
-
---    input honeycomb, productivebees:configurable_honeycomb from comb
---    output to centrifuge
---    forget
-
+every 20 ticks do
+-- genes
     input productivebees:gene from hive
     output to indexer
+    forget
+    input productivebees:gene from indexer_done
+    output to result
+    output to result_overflow
+    forget
+end
+
+every 20 ticks do
+-- vanilla combs
+    input honeycomb from hive
+    output to result
+    output to result_overflow
+    forget
+    input honeycomb_block from hive
+    output to result
+    output to result_overflow
+    forget
+-- combs
+    input productivebees:configurable_honeycomb from hive
+    output to combs
+    forget
+    input productivebees:configurable_comb from hive
+    output to combs
+    forget
+end
+
+every 20 ticks do
+-- centrifuges
+    input productivebees:configurable_honeycomb from combs
+    output to centrifuge
+    forget
+    input productivebees:configurable_comb from combs
+    output to heated_centrifuge
+    forget
+    input productivebees:wax from centrifuge
+    output to result
+    output to result_overflow
+    forget
+    input fluid::honey from centrifuge, heated_centrifuge
+    output fluid::honey to honey
+    forget
+end
+
+every 20 ticks do
+-- custom crafters
+-- rest
+    input item:: from centrifuge, heated_centrifuge
+    output to result
+    output to result_overflow
     forget
 end
