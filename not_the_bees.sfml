@@ -5,6 +5,7 @@ every 1 tick do
     output forge_energy:: to centrifuge
     output forge_energy:: to heated_centrifuge
     output forge_energy:: to crafter_honey
+    output forge_energy:: to crafter_draconic
     forget
 end
 
@@ -53,6 +54,11 @@ every 20 ticks do
     input productivebees:configurable_comb from hive
     output to combs
     forget
+-- items
+    input item:: from hive
+    output to result
+    output to result_overflow
+    forget
 end
 
 every 20 ticks do
@@ -74,6 +80,16 @@ end
 
 every 20 ticks do
 -- custom crafters
+    input productivebees:draconic_dust from centrifuge, heated_centrifuge
+    output to storage_draconic_dust
+    forget
+    input productivebees:draconic_dust from storage_draconic_dust
+    output to crafter_draconic
+    forget
+    input productivebees:draconic_chunk from crafter_draconic
+    output productivebees:draconic_chunk to result
+    output productivebees:draconic_chunk to result_overflow
+    forget
 -- rest
     input item:: from centrifuge, heated_centrifuge
     output to result
