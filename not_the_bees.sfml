@@ -6,6 +6,8 @@ every 1 tick do
     output forge_energy:: to heated_centrifuge
     output forge_energy:: to crafter_honey
     output forge_energy:: to crafter_draconic
+    output forge_energy:: to furnace
+    output forge_energy:: to foundry_netherite
     forget
 end
 
@@ -79,11 +81,40 @@ every 20 ticks do
 end
 
 every 20 ticks do
+-- foundry_netherite
+    input gold_ingot, netherite_scrap
+    from furnace, centrifuge, heated_centrifuge
+    output to storage_netherite
+    forget
+    input from storage_netherite
+    output retain 64 each to foundry_netherite
+    forget
+    input from foundry_netherite
+    output to result
+    output to result_overflow
+    forget
+-- furnaces
+    input
+        justdirethings:raw_eclipsealloy,
+        raw_gold,
+        ftbmaterials:platinum_raw_ore
+    from centrifuge, heated_centrifuge
+    output to storage_furnace
+    forget
+    input from storage_furnace
+    output to furnace
+    forget
+    input from furnace slots 13-18
+    output to result
+    output to result_overflow
+    forget
 -- custom crafters
-    input productivebees:draconic_dust from centrifuge, heated_centrifuge
+    input productivebees:draconic_dust
+    from centrifuge, heated_centrifuge
     output to storage_draconic_dust
     forget
-    input productivebees:draconic_dust from storage_draconic_dust
+    input productivebees:draconic_dust
+    from storage_draconic_dust
     output to crafter_draconic
     forget
     input productivebees:draconic_chunk from crafter_draconic
