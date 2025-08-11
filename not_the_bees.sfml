@@ -87,7 +87,8 @@ every 20 ticks do
     output to storage_netherite
     forget
     input from storage_netherite
-    output retain 64 each to foundry_netherite
+    output gold_ingot to foundry_netherite slots 0
+    output netherite_scrap to foundry_netherite slots 1
     forget
     input from foundry_netherite
     output to result
@@ -97,7 +98,10 @@ every 20 ticks do
     input
         justdirethings:raw_eclipsealloy,
         raw_gold,
-        ftbmaterials:platinum_raw_ore
+        raw_copper,
+        raw_iron,
+        ftbmaterials:platinum_raw_ore,
+        ftbmaterials:aluminum_raw_ore
     from centrifuge, heated_centrifuge
     output to storage_furnace
     forget
