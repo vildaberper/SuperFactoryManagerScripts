@@ -1,6 +1,5 @@
 name "EssenceCrafter"
 every 1 tick do
-
     input forge_energy:: from power
     output forge_energy:: to cloche
     output forge_energy:: to crafter
