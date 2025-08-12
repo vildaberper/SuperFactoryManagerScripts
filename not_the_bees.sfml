@@ -1,13 +1,13 @@
 name "NotTheBees"
 
 every 1 tick do
-    input forge_energy:: from power
-    output forge_energy:: to centrifuge
-    output forge_energy:: to heated_centrifuge
-    output forge_energy:: to crafter_honey
-    output forge_energy:: to crafter_draconic
-    output forge_energy:: to furnace
-    output forge_energy:: to foundry_netherite
+    input fe:: from power
+    output fe:: to centrifuge
+    output fe:: to heated_centrifuge
+    output fe:: to crafter_honey
+    output fe:: to crafter_a
+    output fe:: to furnace
+    output fe:: to foundry_netherite
     forget
 end
 
@@ -77,6 +77,11 @@ every 20 ticks do
     forget
     input fluid::honey from centrifuge, heated_centrifuge
     output fluid::honey to honey
+    output fluid::honey to fluid_overflow
+    forget
+    input except fluid::honey from centrifuge, heated_centrifuge
+    output except fluid::honey to result_fluid
+    output except fluid::honey to fluid_overflow
     forget
 end
 
@@ -84,9 +89,9 @@ every 20 ticks do
 -- foundry_netherite
     input gold_ingot, netherite_scrap
     from furnace, centrifuge, heated_centrifuge
-    output to storage_netherite
+    output to storage_foundry_netherite
     forget
-    input from storage_netherite
+    input from storage_foundry_netherite
     output gold_ingot to foundry_netherite slots 0
     output netherite_scrap to foundry_netherite slots 1
     forget
@@ -94,7 +99,7 @@ every 20 ticks do
     output to result
     output to result_overflow
     forget
--- furnaces
+-- furnace
     input
         justdirethings:raw_eclipsealloy,
         raw_gold,
@@ -112,18 +117,18 @@ every 20 ticks do
     output to result
     output to result_overflow
     forget
--- custom crafters
+-- crafter a
     input productivebees:draconic_dust
     from centrifuge, heated_centrifuge
-    output to storage_draconic_dust
+    output to storage_crafter_a
     forget
     input productivebees:draconic_dust
-    from storage_draconic_dust
-    output to crafter_draconic
+    from storage_crafter_a
+    output to crafter_a
     forget
-    input productivebees:draconic_chunk from crafter_draconic
-    output productivebees:draconic_chunk to result
-    output productivebees:draconic_chunk to result_overflow
+    input from crafter_a slots 36-39
+    output to result
+    output to result_overflow
     forget
 -- rest
     input item:: from centrifuge, heated_centrifuge
