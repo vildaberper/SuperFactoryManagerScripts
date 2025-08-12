@@ -75,13 +75,9 @@ every 20 ticks do
     output to result
     output to result_overflow
     forget
-    input fluid::honey from centrifuge, heated_centrifuge
-    output fluid::honey to honey
-    output fluid::honey to fluid_overflow
-    forget
-    input except fluid::honey from centrifuge, heated_centrifuge
-    output except fluid::honey to result_fluid
-    output except fluid::honey to fluid_overflow
+    input fluid:: from centrifuge, heated_centrifuge
+    output fluid:: to result_fluid
+    output fluid:: to fluid_overflow
     forget
 end
 
@@ -118,11 +114,15 @@ every 20 ticks do
     output to result_overflow
     forget
 -- crafter a
-    input productivebees:draconic_dust
+    input
+        productivebees:draconic_dust,
+        productivebees:obsidian_shard
     from centrifuge, heated_centrifuge
     output to storage_crafter_a
     forget
-    input productivebees:draconic_dust
+    input
+        productivebees:draconic_dust,
+        productivebees:obsidian_shard
     from storage_crafter_a
     output to crafter_a
     forget
