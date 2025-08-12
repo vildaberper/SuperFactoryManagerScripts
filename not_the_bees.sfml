@@ -120,10 +120,7 @@ every 20 ticks do
     from centrifuge, heated_centrifuge
     output to storage_crafter_a
     forget
-    input
-        productivebees:draconic_dust,
-        productivebees:obsidian_shard
-    from storage_crafter_a
+    input from storage_crafter_a
     output to crafter_a
     forget
     input from crafter_a slots 36-39
