@@ -65,8 +65,14 @@ end
 
 every 20 ticks do
 -- centrifuges
+    input productivebees:gene_bottle from indexer_done
+    output to centrifuge
+    forget
     input productivebees:configurable_honeycomb from combs
     output to centrifuge
+    forget
+    input productivebees:gene from centrifuge
+    output to indexer
     forget
     input productivebees:configurable_comb from combs
     output to heated_centrifuge
@@ -98,11 +104,19 @@ every 20 ticks do
 -- furnace
     input
         justdirethings:raw_eclipsealloy,
+        justdirethings:raw_ferricore,
+        justdirethings:raw_blazegold,
         raw_gold,
         raw_copper,
         raw_iron,
         ftbmaterials:platinum_raw_ore,
-        ftbmaterials:aluminum_raw_ore
+        ftbmaterials:aluminum_raw_ore,
+        ftbmaterials:lead_raw_ore,
+        ftbmaterials:silver_raw_ore,
+        ftbmaterials:tin_raw_ore,
+        ftbmaterials:nickel_raw_ore,
+        ftbmaterials:zinc_raw_ore,
+        ftbmaterials:osmium_raw_ore
     from centrifuge, heated_centrifuge
     output to storage_furnace
     forget
