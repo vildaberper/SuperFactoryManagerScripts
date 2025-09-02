@@ -1,10 +1,10 @@
 name "PowahGeoreBonsai"
 every 1 tick do
-    input forge_energy:: from power
-    output forge_energy:: to crafter
-    output forge_energy:: to furnace
-    output forge_energy:: to squeezer
-    output forge_energy:: to overflow
+    input fe:: from power
+    output fe:: to crafter
+    output fe:: to furnace
+    output fe:: to squeezer
+    output fe:: to overflow
     forget
 end
 every 20 ticks do
