@@ -1,54 +1,10 @@
 name "PowahEnergizer"
 every 20 ticks do
-    if energize has =1 item:: then
-        input
-            powah:crystal_blazing,
-            powah:blazing_crystal_block,
-            allthecompressed:blazing_crystal_block_1x,
-            allthecompressed:blazing_crystal_block_2x,
-            allthecompressed:blazing_crystal_block_3x,
-            powah:crystal_niotic,
-            powah:niotic_crystal_block,
-            allthecompressed:niotic_crystal_block_1x,
-            allthecompressed:niotic_crystal_block_2x,
-            allthecompressed:niotic_crystal_block_3x,
-            powah:crystal_spirited,
-            powah:spirited_crystal_block,
-            allthecompressed:spirited_crystal_block_1x,
-            allthecompressed:spirited_crystal_block_2x,
-            powah:dry_ice,
-            powah:charged_snowball,
-            powah:uraninite,
-            powah:ender_core,
-            oritech:energite_ingot,
-            ae2:charged_certus_quartz_crystal,
-            oritech:fluxite,
-            modern_industrialization:plutonium_dust
-        from energize
+    if energize has >=1 item:: then
+        input from energize bottom side
         output to result
-    else if energize has =2 powah:steel_energized then
-        input powah:steel_energized from energize
-        output to result
-    else if energize has =2 powah:energized_steel_block then
-        input powah:energized_steel_block from energize
-        output to result
-    else if energize has =2 allthecompressed:energized_steel_block_2x then
-        input allthecompressed:energized_steel_block_2x from energize
-        output to result
-    else if energize has =2 allthecompressed:energized_steel_block_3x then
-        input allthecompressed:energized_steel_block_3x from energize
-        output to result
-    else if energize has =2 allthecompressed:energized_steel_block_4x then
-        input allthecompressed:energized_steel_block_4x from energize
-        output to result
-    else if energize has =16 powah:crystal_nitro then
-        input powah:crystal_nitro from energize
-        output to result
-    else if energize has =2 powah:uraninite or energize has =3 powah:uraninite or energize has =5 powah:uraninite or energize has =10 powah:uraninite then
-        input powah:uraninite from energize
-        output to result
+        forget
     end
-    forget
 
     if energize has <= 0 item:: then
         if storage has >=1 iron_ingot and storage has >=1 gold_ingot then
@@ -152,6 +108,9 @@ every 20 ticks do
             output to energize
         else if storage has >=1 oritech:uranium_crystal then
             input 1 oritech:uranium_crystal from storage
+            output to energize
+        else if storage has >=1 ae2:certus_quartz_crystal then
+            input 6 ae2:certus_quartz_crystal from storage
             output to energize
         end
     end
