@@ -1,0 +1,37 @@
+name "CobbleBalance"
+
+every 20 TICKS do
+    input from cobble_source output to cobble_0x
+    forget
+
+    if  (cobble_0x has >=810 allthecompressed:cobblestone_2x and cobble_2x has <810 allthecompressed:cobblestone_2x) or
+        (cobble_0x has >=4050 allthecompressed:cobblestone_2x and cobble_2x has <4050 allthecompressed:cobblestone_2x) or
+        (cobble_0x has >=8100 allthecompressed:cobblestone_2x and cobble_2x has <8100 allthecompressed:cobblestone_2x) or
+        (cobble_0x has >=40500 allthecompressed:cobblestone_2x and cobble_2x has <40500 allthecompressed:cobblestone_2x) or
+        (cobble_0x has >=81000 allthecompressed:cobblestone_2x and cobble_2x has <81000 allthecompressed:cobblestone_2x) or
+        (cobble_0x has >=405000 allthecompressed:cobblestone_2x and cobble_2x has <405000 allthecompressed:cobblestone_2x) or
+        (cobble_0x has >=810000 allthecompressed:cobblestone_2x and cobble_2x has <810000 allthecompressed:cobblestone_2x) then
+        input 81 allthecompressed:cobblestone_2x from cobble_0x output to cobble_2x
+        forget
+    end
+    if  (cobble_2x has >=810 allthecompressed:cobblestone_4x and cobble_4x has <810 allthecompressed:cobblestone_4x) or
+        (cobble_2x has >=4050 allthecompressed:cobblestone_4x and cobble_4x has <4050 allthecompressed:cobblestone_4x) or
+        (cobble_2x has >=8100 allthecompressed:cobblestone_4x and cobble_4x has <8100 allthecompressed:cobblestone_4x) or
+        (cobble_2x has >=40500 allthecompressed:cobblestone_4x and cobble_4x has <40500 allthecompressed:cobblestone_4x) or
+        (cobble_2x has >=81000 allthecompressed:cobblestone_4x and cobble_4x has <81000 allthecompressed:cobblestone_4x) or
+        (cobble_2x has >=405000 allthecompressed:cobblestone_4x and cobble_4x has <405000 allthecompressed:cobblestone_4x) or 
+        (cobble_2x has >=810000 allthecompressed:cobblestone_4x and cobble_4x has <810000 allthecompressed:cobblestone_4x) then
+        input 81 allthecompressed:cobblestone_4x from cobble_2x output to cobble_4x
+        forget
+    end
+    if  (cobble_4x has >=810 allthecompressed:cobblestone_6x and cobble_6x has <810 allthecompressed:cobblestone_6x) or
+        (cobble_4x has >=4050 allthecompressed:cobblestone_6x and cobble_6x has <4050 allthecompressed:cobblestone_6x) or
+        (cobble_4x has >=8100 allthecompressed:cobblestone_6x and cobble_6x has <8100 allthecompressed:cobblestone_6x) or
+        (cobble_4x has >=40500 allthecompressed:cobblestone_6x and cobble_6x has <40500 allthecompressed:cobblestone_6x) or
+        (cobble_4x has >=81000 allthecompressed:cobblestone_6x and cobble_6x has <81000 allthecompressed:cobblestone_6x) or
+        (cobble_4x has >=405000 allthecompressed:cobblestone_6x and cobble_6x has <405000 allthecompressed:cobblestone_6x) or
+        (cobble_4x has >=810000 allthecompressed:cobblestone_6x and cobble_6x has <810000 allthecompressed:cobblestone_6x) then
+        input 81 allthecompressed:cobblestone_6x from cobble_4x output to cobble_6x
+        forget
+    end
+end
