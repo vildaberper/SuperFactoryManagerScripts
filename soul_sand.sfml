@@ -1,0 +1,16 @@
+name "SoulSand"
+every 20 ticks do
+  if barrel has >= 1 allthecompressed:soul_sand_2x then
+    input from barrel output to controller
+  end
+
+  if (
+    (controller has >=1000 allthecompressed:sand_2x and controller has <1000 allthecompressed:soul_sand_2x) or
+    (controller has >=10000 allthecompressed:sand_2x and controller has <10000 allthecompressed:soul_sand_2x) or
+    (controller has >=100000 allthecompressed:sand_2x and controller has <100000 allthecompressed:soul_sand_2x)
+  ) and barrel has <= 0 item:: and barrel has <= 0 fluid:: and controller has > 10000 fluid::witch_water then
+    input 1000 fluid::witch_water from controller output fluid::witch_water to barrel top side
+    input 1 allthecompressed:sand_2x from controller output to barrel top side
+    forget
+  end
+end

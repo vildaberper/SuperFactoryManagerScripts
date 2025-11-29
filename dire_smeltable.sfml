@@ -1,0 +1,80 @@
+name "DireSmeltable"
+every 20 ticks do
+    if controller has >=1000 sculk then
+        input sculk from controller
+        output to clicker
+        forget
+    end
+
+    if placer has <=0 item:: and controller has <10 justdirethings:ferricore_block and controller has >=1000 iron_block then
+        input iron_block from controller
+        output to placer
+        forget
+    else if placer has <=0 item:: and controller has <10 justdirethings:blazegold_block and controller has >=1000 gold_block then
+        input gold_block from controller
+        output to placer
+        forget
+    else if placer has <=0 item:: and controller has <10 justdirethings:celestigem_block and controller has >=1000 diamond_block then
+        input diamond_block from controller
+        output to placer
+        forget
+    else if placer has <=0 item:: and controller has <10 justdirethings:eclipsealloy_block and controller has >=1000 netherite_block then
+        input netherite_block from controller
+        output to placer
+        forget
+    end
+
+    if placer has <=0 item:: and controller has <50 justdirethings:ferricore_block and controller has >=1000 iron_block then
+        input iron_block from controller
+        output to placer
+        forget
+    else if placer has <=0 item:: and controller has <50 justdirethings:blazegold_block and controller has >=1000 gold_block then
+        input gold_block from controller
+        output to placer
+        forget
+    else if placer has <=0 item:: and controller has <50 justdirethings:celestigem_block and controller has >=1000 diamond_block then
+        input diamond_block from controller
+        output to placer
+        forget
+    else if placer has <=0 item:: and controller has <50 justdirethings:eclipsealloy_block and controller has >=1000 netherite_block then
+        input netherite_block from controller
+        output to placer
+        forget
+    end
+
+    if placer has <=0 item:: and controller has <100 justdirethings:ferricore_block and controller has >=1000 iron_block then
+        input iron_block from controller
+        output to placer
+        forget
+    else if placer has <=0 item:: and controller has <100 justdirethings:blazegold_block and controller has >=1000 gold_block then
+        input gold_block from controller
+        output to placer
+        forget
+    else if placer has <=0 item:: and controller has <100 justdirethings:celestigem_block and controller has >=1000 diamond_block then
+        input diamond_block from controller
+        output to placer
+        forget
+    else if placer has <=0 item:: and controller has <100 justdirethings:eclipsealloy_block and controller has >=1000 netherite_block then
+        input netherite_block from controller
+        output to placer
+        forget
+    end
+
+    if placer has <=0 item:: and controller has <1000 justdirethings:ferricore_block and controller has >=1000 iron_block then
+        input iron_block from controller
+        output to placer
+        forget
+    else if placer has <=0 item:: and controller has <1000 justdirethings:blazegold_block and controller has >=1000 gold_block then
+        input gold_block from controller
+        output to placer
+        forget
+    else if placer has <=0 item:: and controller has <1000 justdirethings:celestigem_block and controller has >=1000 diamond_block then
+        input diamond_block from controller
+        output to placer
+        forget
+    else if placer has <=0 item:: and controller has <1000 justdirethings:eclipsealloy_block and controller has >=1000 netherite_block then
+        input netherite_block from controller
+        output to placer
+        forget
+    end
+end

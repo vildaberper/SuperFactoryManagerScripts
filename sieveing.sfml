@@ -1,0 +1,109 @@
+name "Sieveing"
+every 1 tick do
+  input fe:: from power south side
+  output fe:: to sieve_gravel
+  output fe:: to sieve_sand
+  output fe:: to sieve_dust
+  output fe:: to sieve_soul_sand
+  output fe:: to crusher_blackstone bottom side
+  output fe:: to sieve_crushed_blackstone
+  output fe:: to crusher_netherrack bottom side
+  output fe:: to sieve_crushed_netherrack
+  output fe:: to crusher_end_stone bottom side
+  output fe:: to sieve_crushed_end_stone
+  output fe:: to crusher_deepslate bottom side
+  output fe:: to sieve_crushed_deepslate
+  output fe:: to sqeueezer
+  output fe:: to enricher west side
+  output fe:: to furnace
+  output fe:: to foundry_netherite
+  forget
+end
+
+every 20 ticks do
+  if controller has >=100000 gravel then
+    input gravel from controller output to sieve_gravel
+    forget
+  end
+  if controller has >=100000 sand then
+    input sand from controller output to sieve_sand
+    forget
+  end
+  if controller has >=100000 exdeorum:dust then
+    input exdeorum:dust from controller output to sieve_dust
+    forget
+  end
+  if controller has >=100000 soul_sand then
+    input soul_sand from controller output to sieve_soul_sand
+    forget
+  end
+
+  if controller has >=1000 allthecompressed:blackstone_2x and controller has <1000 allthecompressed:crushed_blackstone_2x and crusher_blackstone has <=0 item:: then
+    input allthecompressed:blackstone_2x from controller output to crusher_blackstone bottom side
+    forget
+  end
+  if controller has >=1000 exdeorum:crushed_blackstone then
+    input exdeorum:crushed_blackstone from controller output to sieve_crushed_blackstone
+    forget
+  end
+
+  if controller has >=1000 allthecompressed:netherrack_2x and controller has <1000 allthecompressed:crushed_netherrack_2x and crusher_netherrack has <=0 item:: then
+    input allthecompressed:netherrack_2x from controller output to crusher_netherrack bottom side
+    forget
+  end
+  if controller has >=1000 exdeorum:crushed_netherrack then
+    input exdeorum:crushed_netherrack from controller output to sieve_crushed_netherrack
+    forget
+  end
+
+  if controller has >=1000 allthecompressed:end_stone_2x and controller has <1000 allthecompressed:crushed_end_stone_2x and crusher_end_stone has <=0 item:: then
+    input allthecompressed:end_stone_2x from controller output to crusher_end_stone bottom side
+    forget
+  end
+  if controller has >=1000 exdeorum:crushed_end_stone then
+    input exdeorum:crushed_end_stone from controller output to sieve_crushed_end_stone
+    forget
+  end
+
+  if controller has >=1000 allthecompressed:deepslate_2x and controller has <1000 allthecompressed:crushed_deepslate_2x and crusher_deepslate has <=0 item:: then
+    input allthecompressed:deepslate_2x from controller output to crusher_deepslate bottom side
+    forget
+  end
+  if controller has >=1000 exdeorum:crushed_deepslate then
+    input exdeorum:crushed_deepslate from controller output to sieve_crushed_deepslate
+    forget
+  end
+
+  input from sieve_result output to buffer
+  forget
+
+  input with #ores from buffer output to sqeueezer top side
+  forget
+  input from sqeueezer bottom side output to buffer
+  forget
+
+  input from enricher bottom side output to buffer
+  forget
+  input with #storage_blocks/raw_* from buffer output to enricher top side
+  forget
+  input ancient_debris from buffer output to enricher top side
+  forget
+
+  input from furnace bottom side output to buffer
+  forget
+  input
+    alltheores:*_dust,
+    draconicevolution:draconium_dust
+    from buffer output to furnace top side
+  forget
+
+  input from foundry_netherite slots 2 output to buffer
+  forget
+  input gold_ingot from buffer output to foundry_netherite slots 0
+  forget
+  input netherite_scrap from buffer output to foundry_netherite slots 1
+  forget
+
+  input from buffer output to controller
+  forget
+end
