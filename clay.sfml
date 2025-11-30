@@ -1,0 +1,16 @@
+name "Clay"
+every 20 ticks do
+  if barrel has >= 1 allthecompressed:clay_1x then
+    input from barrel output to controller
+  end
+
+  if (
+    (controller has >=1000 allthecompressed:dust_1x and controller has <1000 allthecompressed:clay_1x) or
+    (controller has >=10000 allthecompressed:dust_1x and controller has <10000 allthecompressed:clay_1x) or
+    (controller has >=100000 allthecompressed:dust_1x and controller has <100000 allthecompressed:clay_1x)
+  ) and barrel has <= 0 item:: and barrel has <= 0 fluid:: then
+    input 1000 fluid::water from controller output fluid::water to barrel top side
+    input 1 allthecompressed:dust_1x from controller output to barrel top side
+    forget
+  end
+end
