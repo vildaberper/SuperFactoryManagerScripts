@@ -7,7 +7,7 @@ every 20 ticks do
     end
 
     if energize has <= 0 item:: then
-        if controller has >=2 blue_ice and controller has <10000 powah:dry_ice then
+        if controller has >=100 blue_ice and controller has <1000 powah:dry_ice then
             input 2 blue_ice from controller
             output to energize
         end
