@@ -1,15 +1,15 @@
 name "DryIce"
 every 20 ticks do
-    if energize has >=1 item:: then
-        input from energize bottom side
-        output to controller
-        forget
-    end
+  if energize has >=1 item:: then
+    input from energize bottom side
+    output to controller
+    forget
+  end
 
-    if energize has <= 0 item:: then
-        if controller has >=100 blue_ice and controller has <1000 powah:dry_ice then
-            input 2 blue_ice from controller
-            output to energize
-        end
+  if energize has <= 0 item:: then
+    if controller has >=100 blue_ice and controller has <1000 powah:dry_ice then
+      input 2 blue_ice from controller
+      output to energize
     end
+  end
 end

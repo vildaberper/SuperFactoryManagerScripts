@@ -1,28 +1,28 @@
 name "CobbleCrusher"
 
 every 20 TICKS do
-    if (
-      (controller has >=1000 allthecompressed:cobblestone_2x and controller has <1000 allthecompressed:gravel_2x) or
-      (controller has >=10000 allthecompressed:cobblestone_2x and controller has <10000 allthecompressed:gravel_2x) or
-      (controller has >=100000 allthecompressed:cobblestone_2x and controller has <100000 allthecompressed:gravel_2x)
-    ) and cobble_crusher has <= 0 item:: then
-        input allthecompressed:cobblestone_2x from controller output to cobble_crusher bottom side
-        forget
-    end
-    if (
-      (controller has >=1000 allthecompressed:gravel_2x and controller has <1000 allthecompressed:sand_2x) or
-      (controller has >=10000 allthecompressed:gravel_2x and controller has <10000 allthecompressed:sand_2x) or
-      (controller has >=100000 allthecompressed:gravel_2x and controller has <100000 allthecompressed:sand_2x)
-    ) and gravel_crusher has <= 0 item:: then
-        input allthecompressed:gravel_2x from controller output to gravel_crusher bottom side
-        forget
-    end
-    if (
-      (controller has >=1000 allthecompressed:sand_2x and controller has <1000 allthecompressed:dust_2x) or
-      (controller has >=10000 allthecompressed:sand_2x and controller has <10000 allthecompressed:dust_2x) or
-      (controller has >=100000 allthecompressed:sand_2x and controller has <100000 allthecompressed:dust_2x)
-    ) and sand_crusher has <= 0 item:: then
-        input allthecompressed:sand_2x from controller output to sand_crusher bottom side
-        forget
-    end
+  if (
+    (controller has >=1000 allthecompressed:cobblestone_2x and controller has <1000 allthecompressed:gravel_2x) or
+    (controller has >=10000 allthecompressed:cobblestone_2x and controller has <10000 allthecompressed:gravel_2x) or
+    (controller has >=100000 allthecompressed:cobblestone_2x and controller has <100000 allthecompressed:gravel_2x)
+  ) and cobble_crusher has <= 0 item:: then
+    input allthecompressed:cobblestone_2x from controller output to cobble_crusher bottom side
+    forget
+  end
+  if (
+    (controller has >=1000 allthecompressed:gravel_2x and controller has <1000 allthecompressed:sand_2x) or
+    (controller has >=10000 allthecompressed:gravel_2x and controller has <10000 allthecompressed:sand_2x) or
+    (controller has >=100000 allthecompressed:gravel_2x and controller has <100000 allthecompressed:sand_2x)
+  ) and gravel_crusher has <= 0 item:: then
+    input allthecompressed:gravel_2x from controller output to gravel_crusher bottom side
+    forget
+  end
+  if (
+    (controller has >=1000 allthecompressed:sand_2x and controller has <1000 allthecompressed:dust_2x) or
+    (controller has >=10000 allthecompressed:sand_2x and controller has <10000 allthecompressed:dust_2x) or
+    (controller has >=100000 allthecompressed:sand_2x and controller has <100000 allthecompressed:dust_2x)
+  ) and sand_crusher has <= 0 item:: then
+    input allthecompressed:sand_2x from controller output to sand_crusher bottom side
+    forget
+  end
 end

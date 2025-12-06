@@ -1,8 +1,8 @@
 name "TemplateCrafter"
 
 every 20 ticks do
-    input from crafter slots 36-39
-    output to crafter slots 10-13
-    output to result
-    forget
+  input from crafter slots 36-39
+  output to crafter slots 10-13
+  output to result
+  forget
 end

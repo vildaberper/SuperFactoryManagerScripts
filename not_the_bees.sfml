@@ -1,149 +1,149 @@
 name "NotTheBees"
 
 every 1 tick do
-    input fe:: from power
-    output fe:: to centrifuge
-    output fe:: to heated_centrifuge
-    output fe:: to crafter_honey
-    output fe:: to crafter_a
-    output fe:: to furnace
-    output fe:: to foundry_netherite
-    forget
+  input fe:: from power
+  output fe:: to centrifuge
+  output fe:: to heated_centrifuge
+  output fe:: to crafter_honey
+  output fe:: to crafter_a
+  output fe:: to furnace
+  output fe:: to foundry_netherite
+  forget
 end
 
 every 20 ticks do
 -- bottles
-    input honey_bottle from hive
-    output to crafter_honey
-    forget
-    input glass_bottle from crafter_honey
-    output to storage_glas_bottles
-    forget
-    input glass_bottle from storage_glas_bottles
-    output retain 1 to each hive
-    forget
-    input honey_block from crafter_honey
-    output to result
-    output to result_overflow
-    forget
+  input honey_bottle from hive
+  output to crafter_honey
+  forget
+  input glass_bottle from crafter_honey
+  output to storage_glas_bottles
+  forget
+  input glass_bottle from storage_glas_bottles
+  output retain 1 to each hive
+  forget
+  input honey_block from crafter_honey
+  output to result
+  output to result_overflow
+  forget
 end
 
 every 20 ticks do
 -- genes
-    input productivebees:gene from hive
-    output to indexer
-    forget
-    input productivebees:gene from indexer_done
-    output to result
-    output to result_overflow
-    forget
+  input productivebees:gene from hive
+  output to indexer
+  forget
+  input productivebees:gene from indexer_done
+  output to result
+  output to result_overflow
+  forget
 end
 
 every 20 ticks do
 -- vanilla combs
-    input honeycomb from hive
-    output to result
-    output to result_overflow
-    forget
-    input honeycomb_block from hive
-    output to result
-    output to result_overflow
-    forget
+  input honeycomb from hive
+  output to result
+  output to result_overflow
+  forget
+  input honeycomb_block from hive
+  output to result
+  output to result_overflow
+  forget
 -- combs
-    input productivebees:configurable_honeycomb from hive
-    output to combs
-    forget
-    input productivebees:configurable_comb from hive
-    output to combs
-    forget
+  input productivebees:configurable_honeycomb from hive
+  output to combs
+  forget
+  input productivebees:configurable_comb from hive
+  output to combs
+  forget
 -- items
-    input item:: from hive
-    output to result
-    output to result_overflow
-    forget
+  input item:: from hive
+  output to result
+  output to result_overflow
+  forget
 end
 
 every 20 ticks do
 -- centrifuges
-    input productivebees:gene_bottle from indexer_done
-    output to centrifuge
-    forget
-    input productivebees:configurable_honeycomb from combs
-    output to centrifuge
-    forget
-    input productivebees:gene from centrifuge
-    output to indexer
-    forget
-    input productivebees:configurable_comb from combs
-    output to heated_centrifuge
-    forget
-    input productivebees:wax from centrifuge
-    output to result
-    output to result_overflow
-    forget
-    input fluid:: from centrifuge, heated_centrifuge
-    output fluid:: to result_fluid
-    output fluid:: to fluid_overflow
-    forget
+  input productivebees:gene_bottle from indexer_done
+  output to centrifuge
+  forget
+  input productivebees:configurable_honeycomb from combs
+  output to centrifuge
+  forget
+  input productivebees:gene from centrifuge
+  output to indexer
+  forget
+  input productivebees:configurable_comb from combs
+  output to heated_centrifuge
+  forget
+  input productivebees:wax from centrifuge
+  output to result
+  output to result_overflow
+  forget
+  input fluid:: from centrifuge, heated_centrifuge
+  output fluid:: to result_fluid
+  output fluid:: to fluid_overflow
+  forget
 end
 
 every 20 ticks do
 -- foundry_netherite
-    input gold_ingot, netherite_scrap
-    from furnace, centrifuge, heated_centrifuge
-    output to storage_foundry_netherite
-    forget
-    input from storage_foundry_netherite
-    output gold_ingot to foundry_netherite slots 0
-    output netherite_scrap to foundry_netherite slots 1
-    forget
-    input from foundry_netherite
-    output to result
-    output to result_overflow
-    forget
+  input gold_ingot, netherite_scrap
+  from furnace, centrifuge, heated_centrifuge
+  output to storage_foundry_netherite
+  forget
+  input from storage_foundry_netherite
+  output gold_ingot to foundry_netherite slots 0
+  output netherite_scrap to foundry_netherite slots 1
+  forget
+  input from foundry_netherite
+  output to result
+  output to result_overflow
+  forget
 -- furnace
-    input
-        justdirethings:raw_eclipsealloy,
-        justdirethings:raw_ferricore,
-        justdirethings:raw_blazegold,
-        raw_gold,
-        raw_copper,
-        raw_iron,
-        ftbmaterials:platinum_raw_ore,
-        ftbmaterials:aluminum_raw_ore,
-        ftbmaterials:lead_raw_ore,
-        ftbmaterials:silver_raw_ore,
-        ftbmaterials:tin_raw_ore,
-        ftbmaterials:nickel_raw_ore,
-        ftbmaterials:zinc_raw_ore,
-        ftbmaterials:osmium_raw_ore
-    from centrifuge, heated_centrifuge
-    output to storage_furnace
-    forget
-    input from storage_furnace
-    output to furnace
-    forget
-    input from furnace slots 13-18
-    output to result
-    output to result_overflow
-    forget
+  input
+    justdirethings:raw_eclipsealloy,
+    justdirethings:raw_ferricore,
+    justdirethings:raw_blazegold,
+    raw_gold,
+    raw_copper,
+    raw_iron,
+    ftbmaterials:platinum_raw_ore,
+    ftbmaterials:aluminum_raw_ore,
+    ftbmaterials:lead_raw_ore,
+    ftbmaterials:silver_raw_ore,
+    ftbmaterials:tin_raw_ore,
+    ftbmaterials:nickel_raw_ore,
+    ftbmaterials:zinc_raw_ore,
+    ftbmaterials:osmium_raw_ore
+  from centrifuge, heated_centrifuge
+  output to storage_furnace
+  forget
+  input from storage_furnace
+  output to furnace
+  forget
+  input from furnace slots 13-18
+  output to result
+  output to result_overflow
+  forget
 -- crafter a
-    input
-        productivebees:draconic_dust,
-        productivebees:obsidian_shard
-    from centrifuge, heated_centrifuge
-    output to storage_crafter_a
-    forget
-    input from storage_crafter_a
-    output to crafter_a
-    forget
-    input from crafter_a slots 36-39
-    output to result
-    output to result_overflow
-    forget
+  input
+    productivebees:draconic_dust,
+    productivebees:obsidian_shard
+  from centrifuge, heated_centrifuge
+  output to storage_crafter_a
+  forget
+  input from storage_crafter_a
+  output to crafter_a
+  forget
+  input from crafter_a slots 36-39
+  output to result
+  output to result_overflow
+  forget
 -- rest
-    input item:: from centrifuge, heated_centrifuge
-    output to result
-    output to result_overflow
-    forget
+  input item:: from centrifuge, heated_centrifuge
+  output to result
+  output to result_overflow
+  forget
 end

@@ -1,62 +1,62 @@
 name "PowahGeoreBonsai"
 every 1 tick do
-    input fe:: from power
-    output fe:: to crafter
-    output fe:: to furnace
-    output fe:: to squeezer
-    output fe:: to overflow
-    forget
+  input fe:: from power
+  output fe:: to crafter
+  output fe:: to furnace
+  output fe:: to squeezer
+  output fe:: to overflow
+  forget
 end
 every 20 ticks do
-    input from furnace bottom side
-    output to reactor
-    output to crafter
-    output to controller
+  input from furnace bottom side
+  output to reactor
+  output to crafter
+  output to controller
+  forget
+
+  input from controller
+  output to reactor
+  forget
+
+  input integrateddynamics:menril_log from bonsai bottom side
+  output to squeezer top side
+  forget
+
+  input from bonsai bottom side
+  output to crafter
+  output to controller
+  output to trash
+  forget
+
+  input item:: from squeezer bottom side
+  output item:: to controller
+  output item:: to trash
+  forget
+  input fluid:: from squeezer
+  output fluid:: to reactor
+  output fluid:: to trash
+  forget
+
+  input 1 diamond_axe from crafter
+  output to bonsai south side
+  forget
+
+
+  if crafter has <32 diamond then
+    input 1 geore:diamond_shard from controller
+    output retain 1 to furnace top side
     forget
+  end
 
-    input from controller
-    output to reactor
+  if reactor has <32 redstone then
+    input 1 geore:redstone_shard from controller
+    output retain 1 to furnace top side
     forget
+  end
 
-    input integrateddynamics:menril_log from bonsai bottom side
-    output to squeezer top side
+  if reactor has <32 powah:uraninite then
+    input 1 geore:uraninite_shard from controller
+    output retain 1 to furnace top side
     forget
-
-    input from bonsai bottom side
-    output to crafter
-    output to controller
-    output to trash
-    forget
-
-    input item:: from squeezer bottom side
-    output item:: to controller
-    output item:: to trash
-    forget
-    input fluid:: from squeezer
-    output fluid:: to reactor
-    output fluid:: to trash
-    forget
-
-    input 1 diamond_axe from crafter
-    output to bonsai south side
-    forget
-
-
-    if crafter has <32 diamond then
-        input 1 geore:diamond_shard from controller
-        output retain 1 to furnace top side
-        forget
-    end
-
-    if reactor has <32 redstone then
-        input 1 geore:redstone_shard from controller
-        output retain 1 to furnace top side
-        forget
-    end
-
-    if reactor has <32 powah:uraninite then
-        input 1 geore:uraninite_shard from controller
-        output retain 1 to furnace top side
-        forget
-    end
+  end
 end

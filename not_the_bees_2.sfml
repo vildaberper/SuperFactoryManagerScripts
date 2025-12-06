@@ -1,0 +1,52 @@
+name "NotTheBees2"
+
+every 1 ticks do
+  input fe:: from power
+  output fe:: to crafter_honey
+  output fe:: to centrifuge
+  forget
+end
+
+every 20 ticks do
+-- bottles
+  input honey_bottle from hive
+  output to crafter_honey
+  forget
+  input honey_bottle from bottler
+  output to crafter_honey
+  forget
+  input glass_bottle from crafter_honey
+  output to storage_glas_bottles
+  forget
+  input glass_bottle from storage_glas_bottles
+  output retain 1 to each hive
+  forget
+end
+
+every 20 ticks do
+-- vanilla combs
+    input honeycomb, honeycomb_block from hive
+    output to honeycombs
+    forget
+-- combs
+  input productivebees:configurable_honeycomb,
+    productivebees:configurable_comb from hive
+  output to combs
+  forget
+end
+
+every 20 ticks do
+-- centrifuges
+  input productivebees:configurable_honeycomb from combs
+  output to centrifuge
+  forget
+  input item:: from centrifuge output item:: to controller forget
+  input fluid:: from centrifuge output fluid:: to honey forget
+
+  if honey has >= 10000 fluid:: then
+    input fluid:: from honey output retain 1000 fluid:: to each bottler forget
+    input glass_bottle from storage_glas_bottles
+        output retain 4 to each bottler
+    forget
+  end
+end

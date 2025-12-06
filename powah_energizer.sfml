@@ -1,117 +1,82 @@
 name "PowahEnergizer"
 every 20 ticks do
-    if energize has >=1 item:: then
-        input from energize bottom side
-        output to result
-        forget
-    end
+  if energize has >=1 item:: then
+    input from energize bottom side
+    output to result
+    forget
+  end
 
-    if energize has <= 0 item:: then
-        if storage has >=1 iron_ingot and storage has >=1 gold_ingot then
-            input 1 iron_ingot, 1 gold_ingot from storage
-            output to energize
-        else if storage has >=1 iron_block and storage has >=1 gold_block then
-            input 1 iron_block, 1 gold_block from storage
-            output to energize
-        else if storage has >=1 allthecompressed:iron_block_1x and storage has >=1 allthecompressed:gold_block_1x then
-            input 1 allthecompressed:iron_block_1x, 1 allthecompressed:gold_block_1x from storage
-            output to energize
-        else if storage has >=1 allthecompressed:iron_block_2x and storage has >=1 allthecompressed:gold_block_2x then
-            input 1 allthecompressed:iron_block_2x, 1 allthecompressed:gold_block_2x from storage
-            output to energize
-        else if storage has >=1 allthecompressed:iron_block_3x and storage has >=1 allthecompressed:gold_block_3x then
-            input 1 allthecompressed:iron_block_3x, 1 allthecompressed:gold_block_3x from storage
-            output to energize
-        else if storage has >=1 allthecompressed:iron_block_4x and storage has >=1 allthecompressed:gold_block_4x then
-            input 1 allthecompressed:iron_block_4x, 1 allthecompressed:gold_block_4x from storage
-            output to energize
-        else if storage has >=4 blaze_powder then
-            input 4 blaze_powder from storage
-            output to energize
-        else if storage has >=1 blaze_rod then
-            input 1 blaze_rod from storage
-            output to energize
-        else if storage has >=1 allthecompressed:blaze_rod_block then
-            input 1 allthecompressed:blaze_rod_block from storage
-            output to energize
-        else if storage has >=1 allthecompressed:blaze_rod_block_1x then
-            input 1 allthecompressed:blaze_rod_block_1x from storage
-            output to energize
-        else if storage has >=1 allthecompressed:blaze_rod_block_2x then
-            input 1 allthecompressed:blaze_rod_block_2x from storage
-            output to energize
-        else if storage has >=1 allthecompressed:blaze_rod_block_3x then
-            input 1 allthecompressed:blaze_rod_block_3x from storage
-            output to energize
-        else if storage has >=1 diamond then
-            input 1 diamond from storage
-            output to energize
-        else if storage has >=1 diamond_block then
-            input 1 diamond_block from storage
-            output to energize
-        else if storage has >=1 allthecompressed:diamond_block_1x then
-            input 1 allthecompressed:diamond_block_1x from storage
-            output to energize
-        else if storage has >=1 allthecompressed:diamond_block_2x then
-            input 1 allthecompressed:diamond_block_2x from storage
-            output to energize
-        else if storage has >=1 allthecompressed:diamond_block_3x then
-            input 1 allthecompressed:diamond_block_3x from storage
-            output to energize
-        else if storage has >=1 emerald then
-            input 1 emerald from storage
-            output to energize
-        else if storage has >=1 emerald_block then
-            input 1 emerald_block from storage
-            output to energize
-        else if storage has >=1 allthecompressed:emerald_block_1x then
-            input 1 allthecompressed:emerald_block_1x from storage
-            output to energize
-        else if storage has >=1 allthecompressed:emerald_block_2x then
-            input 1 allthecompressed:emerald_block_2x from storage
-            output to energize
-        else if storage has >=1 nether_star and storage has >=2 redstone_block and storage has >=1 powah:blazing_crystal_block then
-            input 1 nether_star, 2 redstone_block, 1 powah:blazing_crystal_block from storage
-            output to energize
-        else if storage has >=2 blue_ice then
-            input 2 blue_ice from storage
-            output to energize
-        else if storage has >=1 snowball then
-            input 2 snowball from storage
-            output to energize
-        else if storage has >=1 powah:uraninite_ore_poor then
-            input 1 powah:uraninite_ore_poor from storage
-            output to energize
-        else if storage has >=1 powah:deepslate_uraninite_ore_poor then
-            input 1 powah:deepslate_uraninite_ore_poor from storage
-            output to energize
-        else if storage has >=1 alltheores:uranium_ingot then
-            input 1 alltheores:uranium_ingot from storage
-            output to energize
-        else if storage has >=1 powah:deepslate_uraninite_ore then
-            input 1 powah:deepslate_uraninite_ore from storage
-            output to energize
-        else if storage has >=1 powah:deepslate_uraninite_ore_dense then
-            input 1 powah:deepslate_uraninite_ore_dense from storage
-            output to energize
-        else if storage has >=1 powah:uraninite_raw then
-            input 1 powah:uraninite_raw from storage
-            output to energize
-        else if storage has >=1 ender_eye and storage has >=1 powah:dielectric_casing and storage has >=1 powah:capacitor_basic_tiny then
-            input 1 ender_eye, 1 powah:dielectric_casing, 1 powah:capacitor_basic_tiny from storage
-            output to energize
-        else if storage has >=1 alltheores:nickel_ingot and storage has >=1 oritech:fluxite then
-            input 1 alltheores:nickel_ingot, 1 oritech:fluxite from storage
-            output to energize
-        else if storage has >=1 amethyst_shard then
-            input 1 amethyst_shard from storage
-            output to energize
-        else if storage has >=1 oritech:uranium_crystal then
-            input 1 oritech:uranium_crystal from storage
-            output to energize
-        else if storage has >=1 ae2:certus_quartz_crystal then
-            input 6 ae2:certus_quartz_crystal from storage
-            output to energize
-        end
+  if energize has <= 0 item:: then
+    if storage has >=1 iron_ingot and storage has >=1 gold_ingot then
+      input 1 iron_ingot, 1 gold_ingot from storage output to energize
+    else if storage has >=1 iron_block and storage has >=1 gold_block then
+      input 1 iron_block, 1 gold_block from storage output to energize
+    else if storage has >=1 allthecompressed:iron_block_1x and storage has >=1 allthecompressed:gold_block_1x then
+      input 1 allthecompressed:iron_block_1x, 1 allthecompressed:gold_block_1x from storage output to energize
+    else if storage has >=1 allthecompressed:iron_block_2x and storage has >=1 allthecompressed:gold_block_2x then
+      input 1 allthecompressed:iron_block_2x, 1 allthecompressed:gold_block_2x from storage output to energize
+    else if storage has >=1 allthecompressed:iron_block_3x and storage has >=1 allthecompressed:gold_block_3x then
+      input 1 allthecompressed:iron_block_3x, 1 allthecompressed:gold_block_3x from storage output to energize
+    else if storage has >=1 allthecompressed:iron_block_4x and storage has >=1 allthecompressed:gold_block_4x then
+      input 1 allthecompressed:iron_block_4x, 1 allthecompressed:gold_block_4x from storage output to energize
+    else if storage has >=4 blaze_powder then
+      input 4 blaze_powder from storage output to energize
+    else if storage has >=1 blaze_rod then
+      input 1 blaze_rod from storage output to energize
+    else if storage has >=1 allthecompressed:blaze_rod_block then
+      input 1 allthecompressed:blaze_rod_block from storage output to energize
+    else if storage has >=1 allthecompressed:blaze_rod_block_1x then
+      input 1 allthecompressed:blaze_rod_block_1x from storage output to energize
+    else if storage has >=1 allthecompressed:blaze_rod_block_2x then
+      input 1 allthecompressed:blaze_rod_block_2x from storage output to energize
+    else if storage has >=1 allthecompressed:blaze_rod_block_3x then
+      input 1 allthecompressed:blaze_rod_block_3x from storage output to energize
+    else if storage has >=1 diamond then
+      input 1 diamond from storage output to energize
+    else if storage has >=1 diamond_block then
+      input 1 diamond_block from storage output to energize
+    else if storage has >=1 allthecompressed:diamond_block_1x then
+      input 1 allthecompressed:diamond_block_1x from storage output to energize
+    else if storage has >=1 allthecompressed:diamond_block_2x then
+      input 1 allthecompressed:diamond_block_2x from storage output to energize
+    else if storage has >=1 allthecompressed:diamond_block_3x then
+      input 1 allthecompressed:diamond_block_3x from storage output to energize
+    else if storage has >=1 emerald then
+      input 1 emerald from storage output to energize
+    else if storage has >=1 emerald_block then
+      input 1 emerald_block from storage output to energize
+    else if storage has >=1 allthecompressed:emerald_block_1x then
+      input 1 allthecompressed:emerald_block_1x from storage output to energize
+    else if storage has >=1 allthecompressed:emerald_block_2x then
+      input 1 allthecompressed:emerald_block_2x from storage output to energize
+    else if storage has >=1 nether_star and storage has >=2 redstone_block and storage has >=1 powah:blazing_crystal_block then
+      input 1 nether_star, 2 redstone_block, 1 powah:blazing_crystal_block from storage output to energize
+    else if storage has >=2 blue_ice then
+      input 2 blue_ice from storage output to energize
+    else if storage has >=1 snowball then
+      input 2 snowball from storage output to energize
+    else if storage has >=1 powah:uraninite_ore_poor then
+      input 1 powah:uraninite_ore_poor from storage output to energize
+    else if storage has >=1 powah:deepslate_uraninite_ore_poor then
+      input 1 powah:deepslate_uraninite_ore_poor from storage output to energize
+    else if storage has >=1 alltheores:uranium_ingot then
+      input 1 alltheores:uranium_ingot from storage output to energize
+    else if storage has >=1 powah:deepslate_uraninite_ore then
+      input 1 powah:deepslate_uraninite_ore from storage output to energize
+    else if storage has >=1 powah:deepslate_uraninite_ore_dense then
+      input 1 powah:deepslate_uraninite_ore_dense from storage output to energize
+    else if storage has >=1 powah:uraninite_raw then
+      input 1 powah:uraninite_raw from storage output to energize
+    else if storage has >=1 ender_eye and storage has >=1 powah:dielectric_casing and storage has >=1 powah:capacitor_basic_tiny then
+      input 1 ender_eye, 1 powah:dielectric_casing, 1 powah:capacitor_basic_tiny from storage output to energize
+    else if storage has >=1 alltheores:nickel_ingot and storage has >=1 oritech:fluxite then
+      input 1 alltheores:nickel_ingot, 1 oritech:fluxite from storage output to energize
+    else if storage has >=1 amethyst_shard then
+      input 1 amethyst_shard from storage output to energize
+    else if storage has >=1 oritech:uranium_crystal then
+      input 1 oritech:uranium_crystal from storage output to energize
+    else if storage has >=1 ae2:certus_quartz_crystal then
+      input 6 ae2:certus_quartz_crystal from storage output to energize
     end
+  end
 end

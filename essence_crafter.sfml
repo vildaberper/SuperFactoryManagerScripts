@@ -1,22 +1,22 @@
 name "EssenceCrafter"
 every 1 tick do
-    input fe:: from power
-    output fe:: to cloche
-    output fe:: to crafter
-    forget
+  input fe:: from power
+  output fe:: to cloche
+  output fe:: to crafter
+  forget
 end
 
 EVERY 20 TICKS DO
-    input fluid::water from water
-    output fluid::water to cloche
-    forget
+  input fluid::water from water
+  output fluid::water to cloche
+  forget
 
-    input item:: from cloche east side
-    output item:: to crafter
-    output item:: to result
-    forget
+  input item:: from cloche east side
+  output item:: to crafter
+  output item:: to result
+  forget
 
-    input item:: from crafter
-    output item:: to result
-    forget
+  input item:: from crafter
+  output item:: to result
+  forget
 END
