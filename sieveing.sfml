@@ -13,6 +13,8 @@ every 1 tick do
   output fe:: to sieve_crushed_end_stone
   output fe:: to crusher_deepslate bottom side
   output fe:: to sieve_crushed_deepslate
+  output fe:: to sieve_moss_block
+  output fe:: to sieve_dirt
   output fe:: to sqeueezer
   output fe:: to enricher west side
   output fe:: to furnace
@@ -71,6 +73,16 @@ every 20 ticks do
   end
   if controller has >=1000 exdeorum:crushed_deepslate then
     input exdeorum:crushed_deepslate from controller output to sieve_crushed_deepslate
+    forget
+  end
+
+  if controller has >=100000 moss_block then
+    input moss_block from controller output to sieve_moss_block
+    forget
+  end
+
+  if controller has >=1000000 dirt then
+    input dirt from controller output to sieve_dirt
     forget
   end
 
