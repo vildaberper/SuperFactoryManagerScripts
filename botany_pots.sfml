@@ -1,0 +1,6 @@
+name "BotanyPots"
+
+every 20 ticks do
+  input from pot_output output to buffer forget
+  input from buffer output to controller forget
+end
