@@ -1,0 +1,26 @@
+name "DraconicFusionCrafting"
+every 1 tick do
+  input fe:: from power west side
+  output fe:: to injector
+  forget
+end
+
+every 20 ticks do
+  input from core bottom side output to result
+  forget
+
+  if core has <= 0 item:: then
+    if
+      storage has >=1 draconicevolution:basic_crafting_injector and
+      storage has >=1 draconicevolution:wyvern_core and
+      storage has >=2 draconicevolution:draconium_core and
+      storage has >=1 draconicevolution:draconium_block and
+      storage has >=4 diamond then
+      input 1 draconicevolution:basic_crafting_injector from storage output to core
+      input 1 draconicevolution:wyvern_core from storage output to each injector
+      input 2 draconicevolution:draconium_core from storage output to each injector
+      input 1 draconicevolution:draconium_block from storage output to each injector
+      input 4 diamond from storage output to each injector
+    end
+  end
+end

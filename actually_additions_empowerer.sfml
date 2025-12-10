@@ -1,0 +1,75 @@
+name "ActuallyAdditionsEmpowerer"
+every 1 tick do
+  input fe:: from power east side
+  output fe:: to display_stand
+  forget
+end
+
+every 20 ticks do
+  input from empowerer bottom side output to result
+  forget
+
+  if empowerer has <= 0 item:: then
+    if
+      storage has >=1 actuallyadditions:enori_crystal_block and
+      storage has >=1 snowball and
+      storage has >=1 stone_button and
+      storage has >=1 cobblestone and
+      storage has >=1 gray_dye then
+      input 1 actuallyadditions:enori_crystal_block from storage output to empowerer
+      input 1 snowball from storage output to each display_stand
+      input 1 stone_button from storage output to each display_stand
+      input 1 cobblestone from storage output to each display_stand
+      input 1 gray_dye from storage output to each display_stand
+    else if
+      storage has >=1 actuallyadditions:restonia_crystal_block and
+      storage has >=1 nether_brick and
+      storage has >=1 redstone and
+      storage has >=1 brick and
+      storage has >=1 red_dye then
+      input 1 actuallyadditions:restonia_crystal_block from storage output to empowerer
+      input 1 nether_brick from storage output to each display_stand
+      input 1 redstone from storage output to each display_stand
+      input 1 brick from storage output to each display_stand
+      input 1 red_dye from storage output to each display_stand
+    else if
+      storage has >=1 actuallyadditions:palis_crystal_block and
+      storage has >=3 prismarine_shard and
+      storage has >=1 cyan_dye then
+      input 1 actuallyadditions:palis_crystal_block from storage output to empowerer
+      input 3 prismarine_shard from storage output to each display_stand
+      input 1 cyan_dye from storage output to each display_stand
+    else if
+      storage has >=1 actuallyadditions:emeradic_crystal_block and
+      storage has >=1 short_grass and
+      storage has >=1 oak_sapling and
+      storage has >=1 slime_ball and
+      storage has >=1 lime_dye then
+      input 1 actuallyadditions:emeradic_crystal_block from storage output to empowerer
+      input 1 short_grass from storage output to each display_stand
+      input 1 oak_sapling from storage output to each display_stand
+      input 1 slime_ball from storage output to each display_stand
+      input 1 lime_dye from storage output to each display_stand
+    else if
+      storage has >=1 actuallyadditions:diamatine_crystal_block and
+      storage has >=2 clay_ball and
+      storage has >=1 clay and
+      storage has >=1 light_blue_dye then
+      input 1 actuallyadditions:diamatine_crystal_block from storage output to empowerer
+      input 2 clay_ball from storage output to each display_stand
+      input 1 clay from storage output to each display_stand
+      input 1 light_blue_dye from storage output to each display_stand
+    else if
+      storage has >=1 actuallyadditions:void_crystal_block and
+      storage has >=1 coal and
+      storage has >=1 flint and
+      storage has >=1 stone and
+      storage has >=1 black_dye then
+      input 1 actuallyadditions:void_crystal_block from storage output to empowerer
+      input 1 coal from storage output to each display_stand
+      input 1 flint from storage output to each display_stand
+      input 1 stone from storage output to each display_stand
+      input 1 black_dye from storage output to each display_stand
+    end
+  end
+end

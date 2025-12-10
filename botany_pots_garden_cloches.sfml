@@ -1,0 +1,13 @@
+name "BotanyPotsGardenCloched"
+every 1 tick do
+  input fe:: from power bottom side
+  output fe:: to cloche west side
+  forget
+end
+
+every 20 ticks do
+  input fluid::water from sink output fluid::water to cloche north side forget
+
+  input from outputs output to buffer forget
+  input from buffer output to controller forget
+end
