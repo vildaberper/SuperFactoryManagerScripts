@@ -1,0 +1,10 @@
+name "GenericBlockingModeCrafter"
+
+every 20 ticks do
+  input from center bottom side output to result forget
+
+  if center has <= 0 item:: and storage has >=1 item:: then
+    input from storage slots 0 output to center forget
+    input from storage output retain 1 to each pedestal forget
+  end
+end
