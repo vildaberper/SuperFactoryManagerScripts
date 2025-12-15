@@ -1,23 +1,28 @@
 name "HostileNeuralNetworks"
 
-every 1 tick do
+every 20 tick do
   input fe:: from power east side
   output fe:: to simulation_chamber
   output fe:: to loot_fabricator
   forget
 end
 
-every 20 ticks do
-  input hostilenetworks:prediction_matrix from prediction_matrix
-  output retain 2 hostilenetworks:prediction_matrix to each simulation_chamber slots 1
-  forget
+every 20+1 ticks do
+  input from loot_fabricator slots 1-16 output to buffer forget
+end
+every 20+2 ticks do
+  input from buffer output to result forget
+end
 
+every 20+3 ticks do
+  input hostilenetworks:prediction_matrix from prediction_matrix
+  output retain 4 hostilenetworks:prediction_matrix to each simulation_chamber slots 1
+  forget
+end
+
+every 20+4 ticks do
   input from simulation_chamber slots 2-3
   output hostilenetworks:prediction to controller_prediction
   output to buffer
   forget
-
-  input from loot_fabricator slots 1-16 output to buffer forget
-
-  input from buffer output to result forget
 end

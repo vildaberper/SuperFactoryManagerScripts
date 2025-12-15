@@ -1,13 +1,18 @@
 name "BotanyPotsGardenCloched"
-every 1 tick do
+every 5 ticks do
   input fe:: from power bottom side
   output fe:: to cloche west side
   forget
 end
 
-every 20 ticks do
+every 20+1 ticks do
   input fluid::water from sink output fluid::water to cloche north side forget
+end
 
+every 20+2 ticks do
   input from outputs output to buffer forget
+end
+
+every 20+3 ticks do
   input from buffer output to controller forget
 end

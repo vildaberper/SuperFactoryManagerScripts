@@ -6,7 +6,7 @@ every 20 ticks do
     forget
   end
 
-  if energize has <= 0 item:: then
+  if energize has <= 0 item:: and storage has >= 1 item:: then
     if storage has >=1 iron_ingot and storage has >=1 gold_ingot then
       input 1 iron_ingot, 1 gold_ingot from storage output to energize
     else if storage has >=1 iron_block and storage has >=1 gold_block then

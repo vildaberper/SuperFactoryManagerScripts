@@ -23,69 +23,73 @@ every 1 tick do
 end
 
 every 20 ticks do
-  if controller has >=100000 gravel then
-    input gravel from controller output to sieve_gravel
+  if sieve_gravel has <=64 gravel and controller has >=100000 gravel then
+    input gravel from controller output to sieve_gravel slots 2-4
     forget
   end
-  if controller has >=100000 sand then
-    input sand from controller output to sieve_sand
+  if sieve_sand has <=64 sand and controller has >=100000 sand then
+    input sand from controller output to sieve_sand slots 2-4
     forget
   end
-  if controller has >=100000 exdeorum:dust then
-    input exdeorum:dust from controller output to sieve_dust
+  if sieve_dust has <=64 exdeorum:dust and controller has >=100000 exdeorum:dust then
+    input exdeorum:dust from controller output to sieve_dust slots 2-4
     forget
   end
-  if controller has >=100000 soul_sand then
-    input soul_sand from controller output to sieve_soul_sand
+  if sieve_soul_sand has <=64 soul_sand and controller has >=100000 soul_sand then
+    input soul_sand from controller output to sieve_soul_sand slots 2-4
     forget
   end
+end
 
-  if controller has >=1000 allthecompressed:blackstone_2x and controller has <1000 allthecompressed:crushed_blackstone_2x and crusher_blackstone has <=0 item:: then
+every 20+1 ticks do
+  if crusher_blackstone has <=0 item:: and controller has >=1000 allthecompressed:blackstone_2x and controller has <1000 allthecompressed:crushed_blackstone_2x then
     input allthecompressed:blackstone_2x from controller output to crusher_blackstone bottom side
     forget
   end
-  if controller has >=1000 exdeorum:crushed_blackstone then
-    input exdeorum:crushed_blackstone from controller output to sieve_crushed_blackstone
+  if sieve_crushed_blackstone has <=64 exdeorum:crushed_blackstone and controller has >=1000 exdeorum:crushed_blackstone then
+    input exdeorum:crushed_blackstone from controller output to sieve_crushed_blackstone slots 2-4
     forget
   end
 
-  if controller has >=1000 allthecompressed:netherrack_2x and controller has <1000 allthecompressed:crushed_netherrack_2x and crusher_netherrack has <=0 item:: then
+  if crusher_netherrack has <=0 item:: and controller has >=1000 allthecompressed:netherrack_2x and controller has <1000 allthecompressed:crushed_netherrack_2x then
     input allthecompressed:netherrack_2x from controller output to crusher_netherrack bottom side
     forget
   end
-  if controller has >=1000 exdeorum:crushed_netherrack then
-    input exdeorum:crushed_netherrack from controller output to sieve_crushed_netherrack
+  if sieve_crushed_netherrack has <=64 exdeorum:crushed_netherrack and controller has >=1000 exdeorum:crushed_netherrack then
+    input exdeorum:crushed_netherrack from controller output to sieve_crushed_netherrack slots 2-4
     forget
   end
 
-  if controller has >=1000 allthecompressed:end_stone_2x and controller has <1000 allthecompressed:crushed_end_stone_2x and crusher_end_stone has <=0 item:: then
+  if crusher_end_stone has <=0 item:: and controller has >=1000 allthecompressed:end_stone_2x and controller has <1000 allthecompressed:crushed_end_stone_2x then
     input allthecompressed:end_stone_2x from controller output to crusher_end_stone bottom side
     forget
   end
-  if controller has >=1000 exdeorum:crushed_end_stone then
-    input exdeorum:crushed_end_stone from controller output to sieve_crushed_end_stone
+  if sieve_crushed_end_stone has <=64 exdeorum:crushed_end_stone and controller has >=1000 exdeorum:crushed_end_stone then
+    input exdeorum:crushed_end_stone from controller output to sieve_crushed_end_stone slots 2-4
     forget
   end
 
-  if controller has >=1000 allthecompressed:deepslate_2x and controller has <1000 allthecompressed:crushed_deepslate_2x and crusher_deepslate has <=0 item:: then
+  if crusher_deepslate has <=0 item:: and controller has >=1000 allthecompressed:deepslate_2x and controller has <1000 allthecompressed:crushed_deepslate_2x then
     input allthecompressed:deepslate_2x from controller output to crusher_deepslate bottom side
     forget
   end
-  if controller has >=1000 exdeorum:crushed_deepslate then
-    input exdeorum:crushed_deepslate from controller output to sieve_crushed_deepslate
+  if sieve_crushed_deepslate has <=64 exdeorum:crushed_deepslate and controller has >=1000 exdeorum:crushed_deepslate then
+    input exdeorum:crushed_deepslate from controller output to sieve_crushed_deepslate slots 2-4
     forget
   end
 
-  if controller has >=100000 moss_block then
-    input moss_block from controller output to sieve_moss_block
+  if sieve_moss_block has <=64 moss_block and controller has >=100000 moss_block then
+    input moss_block from controller output to sieve_moss_block slots 2-4
     forget
   end
 
-  if controller has >=1000000 dirt then
-    input dirt from controller output to sieve_dirt
+  if sieve_dirt has <=64 dirt and controller has >=1000000 dirt then
+    input dirt from controller output to sieve_dirt slots 2-4
     forget
   end
+end
 
+every 20+2 ticks do
   input from sieve_result output to buffer
   forget
 
@@ -111,11 +115,13 @@ every 20 ticks do
 
   input from foundry_netherite slots 2 output to buffer
   forget
+end
+
+every 20+3 ticks do
   input gold_ingot from buffer output to foundry_netherite slots 0
   forget
   input netherite_scrap from buffer output to foundry_netherite slots 1
   forget
-
   input from buffer output to controller
   forget
 end
