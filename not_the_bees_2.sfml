@@ -43,3 +43,10 @@ every 20+2 ticks do
     input from powered_centrifuge, heated_centrifuge output to controller forget
     input fluid:: from powered_centrifuge, heated_centrifuge output fluid:: to controller forget
 end
+
+every 20+3 ticks do
+-- genes
+  input productivebees:gene from hive slots 2-10
+  output to gene_indexer
+  forget
+end
